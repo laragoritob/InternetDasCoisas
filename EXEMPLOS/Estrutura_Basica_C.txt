@@ -1,0 +1,6 @@
+#include 
+
+int main () {
+	alguma coisa;
+	return 0;
+}
