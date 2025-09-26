@@ -5,72 +5,61 @@
 int main () {
 	setlocale(LC_ALL, "Portuguese");
 	
-	float salario, novoSalario, imposto, salarioImposto;
+	float salario, novoSalario, imposto;
 	int opcao;
 	
-	printf("1 - Imposto.");
-	printf("2 - Novo Salário.");
-	printf("3 - Classificação.");
-	printf("Escolha uma das opções acima: \n");
+	printf("1 - Imposto.\n");
+	printf("2 - Novo Salário.\n");
+	printf("3 - Classificação.\n");
+	printf("Escolha uma das opções acima: ");
 	scanf("%d", &opcao);
 	
 	switch (opcao) {
 		case 1:
-			printf("Digite o salário do funcionário: ");
-			scanf("%.2f", &salario);
+			printf("Digite o salário do funcionário: R$");
+			scanf("%f", &salario);
 			
-			if (salario < 500)
-				imposto = 5/100;
-				salario = salario * imposto;
-				salarioImposto = salario - imposto; 
+			if (salario < 500) {
+				imposto = 0.05 * salario;
+			} else if (salario >= 500 && salario <= 850) {
+				imposto = 0.10 * salario;
+			} else {
+				imposto = 0.15 * salario; 
+			}
 				
-				printf("Valor do Imposto: R$", imposto);
-				printf("Salário após o imposto: R$", salarioImposto);
-				
-			else if (salario >= 500 && salario <= 850)
-				imposto = 10/100;
-				salario = salario * imposto;
-				salarioImposto = salario - imposto; 
-				
-				printf("Valor do Imposto: R$", imposto);
-				printf("Salário após o imposto: R$", salarioImposto);
-				
-			else
-				imposto = 15/100;
-				salario = salario * imposto;
-				salarioImposto = salario - imposto; 
-				
-				printf("Valor do Imposto: R$", imposto);
-				printf("Salário após o imposto: R$", salarioImposto);
+			printf("Valor do Imposto: R$%.2f\n", imposto);
+			break;
 			
 		case 2:
-			printf("Digite o salário do funcionário: ");
-			scanf("%.2f", &salario);
+			printf("Digite o salário do funcionário: R$");
+			scanf("%f", &salario);
 			
-			if (salario > 1500)
+			if (salario > 1500) {
 				novoSalario = salario + 25;
-				printf("Novo Salário: R$", novoSalario);
-				
-			else if (salario >= 750 && salario <= 1500)
+			} else if (salario >= 750 && salario <= 1500) {
 				novoSalario = salario + 50;
-				printf("Novo Salário: R$", novoSalario);
-				
-			else if (salario >= 450 && salario <= 749)
+			} else if (salario >= 450 && salario <= 749) {
 				novoSalario = salario + 75;
-				printf("Novo Salário: R$", novoSalario);
-				
-			else
+			} else {
 				novoSalario = salario + 100;
-				printf("Novo Salário: R$", novoSalario);
+			}
+			
+			printf("Novo Salário: R$%.2f\n", novoSalario);
+			break;
 			
 		case 3:
+			printf("Digite o salário do funcionário: R$");
+			scanf("%f", &salario);
+			
 			if (salario <= 700)
 				printf("Sua classificação é Mal Remunerado!");
 			else
 				printf("Sua classificação é Bem Remunerado!");
+			break;
 				
 		default:
 			printf("OPÇÃO INVÁLIDA!!!");
+			break;
 	}
 }
 	

@@ -10,7 +10,7 @@ int main () {
 	printf("Digite seu dia de nascimento: ");
 	scanf("%d", &dia);
 	
-	printf("Digite seu mes de nascimento (utilize números): ");
+	printf("Digite seu mês de nascimento (utilize números): ");
 	scanf("%d", &mes);
 	
 	switch(mes) {
